@@ -26,7 +26,7 @@ void printNumericLimits() {
 	float f1 = 1.1111111;
 	float f2 = 1.1111111;
 
-	printf("Loss of precision sum = %.7f\n", (f1 + f2));
+	//printf("Loss of precision sum = %.7f\n", (f1 + f2));
 }
 
 void inputExample() {
@@ -91,9 +91,54 @@ void numberGuess() {
 	if (again == "Y" || again == "y") numberGuess();
 }
 
+void strings() {
+	string string1 = "String example";
+	cout << "First: " << string1[0] << endl;
+	cout << "Last: " << string1.back() << endl;
+	cout << "Length: " << string1.length() << endl;
+	
+	string string2 = string1;
+	string string3(string2, 4);
+}
+
+void pointers() {
+	int n = 5;
+	int* pn = &n;
+	cout << "n address: " << pn << endl;
+	cout << "n value: " << *pn << endl;
+}
+
+void pointerToArray() {
+	int intArray[] = {1, 2, 3, 4};
+	int* pIntArray = intArray;
+	cout << "1st array address: " << pIntArray << endl;
+	cout << "1st array value: " << *pIntArray << endl;
+	pIntArray++;
+	cout << "2nd array address: " << pIntArray << endl;
+	cout << "2nd array value: " << *pIntArray << endl;
+}
+
+void doubleArray(int* arr, int size) {
+	for (int i = 0; i < size; ++i) {
+		arr[i] = arr[i] * 2;
+	}
+}
+
+double addNumbers(double num1, double num2);
+void assignAge(int age);
+void assignAgePointer(int* agePointer);
+
 int main()
 {
-	numberGuess();
+	int someArray[] = {1, 2, 3, 4};
+	doubleArray(someArray, size(someArray));
+	for (auto n : someArray) {
+		printf("%d", n);
+	}
+	//pointerToArray();
+	//pointers();
+	//printf("%.1f + %.1f = %.1f", 5.0, 4.0, addNumbers(5, 4));
+	//numberGuess();
 	//stringStream();
 	//vectors();
 	//arrays();
@@ -101,6 +146,18 @@ int main()
 	//cout << ternaryOperatorEx(4) << endl;
 	//printNumericLimits();
 	//inputExample();
+}
+
+void assignAgePointer(int* agePointer) {
+	*agePointer = 24;
+}
+
+void assignAge(int age) {
+	age = 24;
+}
+
+double addNumbers(double num1=0, double num2=0) {
+	return num1 + num2;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
