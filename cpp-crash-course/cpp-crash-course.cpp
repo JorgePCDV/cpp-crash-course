@@ -1,6 +1,3 @@
-// cpp-crash-course.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -53,9 +50,53 @@ void arrays() {
 	cout << "arrNums2 first value is now: " << arrNums2[0] << endl;
 }
 
+void vectors() {
+	vector<int> nums(2);
+	nums[0] = 1;
+	nums[1] = 2;
+	nums.push_back(3);
+	cout << "Nums vector size: " << nums.size() << endl;
+}
+
+void stringStream() {
+	vector<string> words;
+	stringstream ss("Some Random Words");
+	string word;
+	
+	while (getline(ss, word, ' ')) {
+		words.push_back(word);
+	}
+
+	for (auto word : words) cout << word << endl;
+	
+}
+
+void numberGuess() {
+	srand(time(NULL));
+	int secretNum = rand() % 11;
+	int guess;
+
+	do {
+		cout << "Guess the number: " << endl;
+		cin >> guess;
+		if (guess > secretNum) cout << "Too big" << endl;
+		if (guess < secretNum) cout << "Too small" << endl;
+	} while (secretNum != guess);
+	printf("Guessed correct secret number %d", secretNum);
+
+	string again;
+	cout << endl << "Again? Y/N" << endl;
+	cin >> again;
+
+	if (again == "Y" || again == "y") numberGuess();
+}
+
 int main()
 {
-	arrays();
+	numberGuess();
+	//stringStream();
+	//vectors();
+	//arrays();
 	//cout.setf(ios::boolalpha);
 	//cout << ternaryOperatorEx(4) << endl;
 	//printNumericLimits();
