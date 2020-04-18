@@ -7,6 +7,8 @@
 #include <numeric>
 #include <ctime>
 #include <cmath>
+#include "Shape.h"
+#include "Circle.h"
 
 using namespace std;
 
@@ -124,17 +126,37 @@ void doubleArray(int* arr, int size) {
 	}
 }
 
+void exceptionHandling() {
+	double num1 = 10, num2 = 0;
+	try {
+		if(num2 == 0) {
+			throw "division by zero error";
+		} else {
+			printf("%.1f / %.1f = %.1f", num1, num2, (num1 / num2));
+		}
+	} catch (const char* exp) {
+		cout << "Error: " << exp << endl;
+	}
+}
+
 double addNumbers(double num1, double num2);
 void assignAge(int age);
 void assignAgePointer(int* agePointer);
 
-int main()
-{
-	int someArray[] = {1, 2, 3, 4};
+void showArea(Shape& shape) {
+	cout << "Area of " << typeid(shape).name() << " is " << shape.area() << endl;
+}
+
+int main() {
+	Shape square(10, 5);
+	Circle circle(10);
+	showArea(square);
+	showArea(circle);
+	/*int someArray[] = {1, 2, 3, 4};
 	doubleArray(someArray, size(someArray));
 	for (auto n : someArray) {
 		printf("%d", n);
-	}
+	}*/
 	//pointerToArray();
 	//pointers();
 	//printf("%.1f + %.1f = %.1f", 5.0, 4.0, addNumbers(5, 4));
