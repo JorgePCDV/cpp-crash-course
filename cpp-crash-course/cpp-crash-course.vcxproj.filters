@@ -16,6 +16,9 @@
     <Filter Include="Source Files\AbstractExamples">
       <UniqueIdentifier>{69dbefe9-3734-4ef1-a0da-5e4fee411fbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Operator Overloading">
+      <UniqueIdentifier>{05022ef7-4616-4ab1-8c32-9f70bb06b001}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp-crash-course.cpp">
@@ -33,6 +36,9 @@
     <ClCompile Include="CircleAbstract.cpp">
       <Filter>Source Files\AbstractExamples</Filter>
     </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shape.h">
@@ -45,6 +51,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CircleAbstract.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,6 +11,7 @@
 #include "Circle.h"
 #include "ShapeAbstract.h"
 #include "CircleAbstract.h"
+#include "Box.h"
 
 using namespace std;
 
@@ -181,10 +182,20 @@ struct CircleStruct : ShapeStruct {
 };
 
 int main() {
-	ShapeStruct shapeStruct(10, 10);
+	Box box(10, 10, 10);
+	cout << box << endl;
+	++box;
+	cout << box << endl;
+	Box box2(5, 5, 5);
+	cout << "Box 1 + Box 2 = " << box+box2 << endl;
+	cout << box << endl;
+	cout << "Box 1 == Box 2? " << (box == box2) << endl;
+
+	
+	/*ShapeStruct shapeStruct(10, 10);
 	cout << "Square Area: " << shapeStruct.Area() << endl;
 	CircleStruct circleStruct(6.5);
-	cout << "Circle Area: " << circleStruct.Area() << endl;
+	cout << "Circle Area: " << circleStruct.Area() << endl;*/
 
 
 	
