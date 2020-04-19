@@ -148,12 +148,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
+    <ClCompile Include="CircleAbstract.cpp" />
     <ClCompile Include="cpp-crash-course.cpp" />
     <ClCompile Include="Shape.cpp" />
+    <ClCompile Include="ShapeAbstract.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Circle.h" />
+    <ClInclude Include="CircleAbstract.h" />
     <ClInclude Include="Shape.h" />
+    <ClInclude Include="ShapeAbstract.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

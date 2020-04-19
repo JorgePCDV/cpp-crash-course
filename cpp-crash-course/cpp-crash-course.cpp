@@ -9,6 +9,8 @@
 #include <cmath>
 #include "Shape.h"
 #include "Circle.h"
+#include "ShapeAbstract.h"
+#include "CircleAbstract.h"
 
 using namespace std;
 
@@ -142,16 +144,58 @@ void exceptionHandling() {
 double addNumbers(double num1, double num2);
 void assignAge(int age);
 void assignAgePointer(int* agePointer);
+void showAreaAbstract(ShapeAbstract& shape);
 
 void showArea(Shape& shape) {
 	cout << "Area of " << typeid(shape).name() << " is " << shape.area() << endl;
 }
 
+void showAreaAbstract(ShapeAbstract& shape) {
+	cout << "Area of " << typeid(shape).name() << " is " << shape.Area() << endl;
+}
+
+struct ShapeStruct {
+	double length, width;
+	
+	ShapeStruct(double l = 1, double w = 1) {
+		length = l;
+		width = w;
+	}
+	
+	double Area() {
+		return length * width;
+	}
+	
+private:
+	int id;
+};
+
+struct CircleStruct : ShapeStruct {
+	CircleStruct(double width) {
+		this->width = width;
+	}
+
+	double Area() {
+		return 3.14159 * pow((width / 2), 2);
+	}
+};
+
 int main() {
-	Shape square(10, 5);
+	ShapeStruct shapeStruct(10, 10);
+	cout << "Square Area: " << shapeStruct.Area() << endl;
+	CircleStruct circleStruct(6.5);
+	cout << "Circle Area: " << circleStruct.Area() << endl;
+
+
+	
+	/*CircleAbstract circleAbstract(10);
+	showAreaAbstract(circleAbstract);*/
+	
+	/*Shape square(10, 5);
 	Circle circle(10);
 	showArea(square);
-	showArea(circle);
+	showArea(circle);*/
+	
 	/*int someArray[] = {1, 2, 3, 4};
 	doubleArray(someArray, size(someArray));
 	for (auto n : someArray) {
