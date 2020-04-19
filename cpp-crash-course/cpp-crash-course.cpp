@@ -7,6 +7,8 @@
 #include <numeric>
 #include <ctime>
 #include <cmath>
+#include <algorithm>
+
 #include "Shape.h"
 #include "Circle.h"
 #include "ShapeAbstract.h"
@@ -181,15 +183,31 @@ struct CircleStruct : ShapeStruct {
 	}
 };
 
+void lambdaExpressions() {
+	vector<int> nums = {90, 20, 74, 21, 134 };
+	vector<int> numsFiltered(nums.size());
+	int sum = 0;
+	
+	//std::sort(nums.begin(), nums.end(), [](int x, int y) {return x < y; });
+	//std::copy_if(nums.begin(), nums.end(), numsFiltered.begin(), [](int x) { return (x % 2) == 0; });;;;
+	for_each(nums.begin(), nums.end(), [&](int x) { sum += x; });
+
+	cout << "Sum: " << sum << endl;
+	/*for (auto n : numsFiltered) {
+		cout << n << endl;
+	}*/
+}
+
 int main() {
-	Box box(10, 10, 10);
+	lambdaExpressions();
+	/*Box box(10, 10, 10);
 	cout << box << endl;
 	++box;
 	cout << box << endl;
 	Box box2(5, 5, 5);
 	cout << "Box 1 + Box 2 = " << box+box2 << endl;
 	cout << box << endl;
-	cout << "Box 1 == Box 2? " << (box == box2) << endl;
+	cout << "Box 1 == Box 2? " << (box == box2) << endl;*/
 
 	
 	/*ShapeStruct shapeStruct(10, 10);
