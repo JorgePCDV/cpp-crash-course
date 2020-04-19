@@ -8,6 +8,7 @@
 #include <ctime>
 #include <cmath>
 #include <algorithm>
+#include <fstream>
 
 #include "Shape.h"
 #include "Circle.h"
@@ -198,8 +199,35 @@ void lambdaExpressions() {
 	}*/
 }
 
+void fileIO() {
+	std::ofstream writeToFile;
+	ifstream readFromFile;
+	string txtToWrite = "";
+	string txtFromFile = "";
+
+	writeToFile.open("test.txt", ios_base::out | ios_base::trunc);
+	if (writeToFile.is_open()) {
+		writeToFile << "Beginning of File\n";
+		cout << "Enter data to write: ";
+		getline(cin, txtToWrite);
+		writeToFile << txtToWrite;
+		writeToFile.close();
+	}
+
+	readFromFile.open("test.txt", ios_base::in);
+	if (readFromFile.is_open()) {
+		while (readFromFile.good()) {
+			getline(readFromFile, txtFromFile);
+			cout << txtFromFile << endl;
+		}
+		readFromFile.close();
+	}
+}
+
 int main() {
-	lambdaExpressions();
+	fileIO();
+	//lambdaExpressions();
+	
 	/*Box box(10, 10, 10);
 	cout << box << endl;
 	++box;
