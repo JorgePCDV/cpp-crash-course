@@ -16,11 +16,15 @@
 #include "ShapeAbstract.h"
 #include "CircleAbstract.h"
 #include "Box.h"
+#include "Person.h"
+#include "Person.cpp"
+
+
+using namespace std;
 
 #define PI 3.14159
 #define AREA_CIRCLE(radius) (PI * pow(radius, 2))
 
-using namespace std;
 
 int globalVariable = 2;
 
@@ -239,9 +243,20 @@ double multByThree(double num) {
 	return num * 3;
 }
 
+template <typename T>
+void Times2(T val) {
+	cout << val << " * 2 = " << val * 2 << endl;
+}
+
 
 int main() {
-	cout << "Circle Area " << AREA_CIRCLE(5) << endl;
+	Person<double, int> somePerson(5.83, 216);
+	somePerson.GetData();
+
+	/*Times2(5);
+	Times2(5.3);*/
+	
+	//cout << "Circle Area " << AREA_CIRCLE(5) << endl;
 	
 	/*auto times2 = functionsAsObjects;
 	cout << "5 * 2 = " << times2(5) << endl;

@@ -19,6 +19,9 @@
     <Filter Include="Source Files\Operator Overloading">
       <UniqueIdentifier>{05022ef7-4616-4ab1-8c32-9f70bb06b001}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Template Classes">
+      <UniqueIdentifier>{df50ac09-f7aa-4382-8ca0-1114f384cb0a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cpp-crash-course.cpp">
@@ -39,6 +42,9 @@
     <ClCompile Include="Box.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>Source Files\Template Classes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shape.h">
@@ -54,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Box.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
