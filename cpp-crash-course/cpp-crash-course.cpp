@@ -15,6 +15,7 @@
 #include "ShapeAbstract.h"
 #include "CircleAbstract.h"
 #include "Box.h"
+#include <functional>
 
 using namespace std;
 
@@ -224,8 +225,32 @@ void fileIO() {
 	}
 }
 
+double functionsAsObjects(double num) {
+	return num * 2;
+}
+
+double functionsAsArguments(function<double(double)> func, double num) {
+	return func(num);
+}
+
+double multByThree(double num) {
+	return num * 3;
+}
+
+
 int main() {
-	fileIO();
+	auto times2 = functionsAsObjects;
+	cout << "5 * 2 = " << times2(5) << endl;
+	
+	cout << "6 * 2 = " << functionsAsArguments(functionsAsObjects, 6) << endl;
+
+	vector<function<double(double)>> funcs(2);
+	funcs[0] = functionsAsObjects;
+	funcs[1] = multByThree;
+
+	cout << "3 * 10 = " << funcs[1](10) << endl;
+
+	//fileIO();
 	//lambdaExpressions();
 	
 	/*Box box(10, 10, 10);
