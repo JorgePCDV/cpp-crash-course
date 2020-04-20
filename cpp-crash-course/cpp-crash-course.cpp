@@ -18,6 +18,7 @@
 #include "Box.h"
 #include "Person.h"
 #include "Person.cpp"
+#include <deque>
 
 
 using namespace std;
@@ -248,10 +249,34 @@ void Times2(T val) {
 	cout << val << " * 2 = " << val * 2 << endl;
 }
 
+void containers() {
+	deque<int> nums = {1, 2, 3, 4};
+	nums.push_front(0);
+	nums.push_back(5);
+	for (int n : nums) {
+		cout << n << endl;
+	}
+}
+
+void iterators() {
+	vector<int> nums = {1, 2, 3, 4, 5};
+	vector<int>::iterator itr;
+	for (itr = nums.begin(); itr < nums.end(); itr++) {
+		cout << *itr << endl;
+	}
+
+	vector<int>::iterator itr2 = nums.begin();
+	advance(itr2, 2);
+	cout << *itr2 << endl;
+}
+
 
 int main() {
-	Person<double, int> somePerson(5.83, 216);
-	somePerson.GetData();
+	iterators();
+	//containers();
+	
+	/*Person<double, int> somePerson(5.83, 216);
+	somePerson.GetData();*/
 
 	/*Times2(5);
 	Times2(5.3);*/
