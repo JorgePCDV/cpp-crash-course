@@ -9,18 +9,20 @@
 #include <cmath>
 #include <algorithm>
 #include <fstream>
+#include <functional>
 
 #include "Shape.h"
 #include "Circle.h"
 #include "ShapeAbstract.h"
 #include "CircleAbstract.h"
 #include "Box.h"
-#include <functional>
+
+#define PI 3.14159
+#define AREA_CIRCLE(radius) (PI * pow(radius, 2))
 
 using namespace std;
 
 int globalVariable = 2;
-const double PI = 3.14;
 
 void printNumericLimits() {
 	cout << "Min unsigned short int " << numeric_limits<unsigned short int>::min() << endl;
@@ -239,7 +241,9 @@ double multByThree(double num) {
 
 
 int main() {
-	auto times2 = functionsAsObjects;
+	cout << "Circle Area " << AREA_CIRCLE(5) << endl;
+	
+	/*auto times2 = functionsAsObjects;
 	cout << "5 * 2 = " << times2(5) << endl;
 	
 	cout << "6 * 2 = " << functionsAsArguments(functionsAsObjects, 6) << endl;
@@ -248,7 +252,7 @@ int main() {
 	funcs[0] = functionsAsObjects;
 	funcs[1] = multByThree;
 
-	cout << "3 * 10 = " << funcs[1](10) << endl;
+	cout << "3 * 10 = " << funcs[1](10) << endl;*/
 
 	//fileIO();
 	//lambdaExpressions();
