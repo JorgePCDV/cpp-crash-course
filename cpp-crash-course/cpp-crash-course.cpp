@@ -13,6 +13,9 @@
 #include <memory>
 #include <memory>
 #include <stdio.h>
+#include <thread>
+#include <chrono>
+#include <mutex>
 
 #include "Shape.h"
 #include "Circle.h"
@@ -314,7 +317,29 @@ void smartPointers() {
 	}
 }
 
+int getRandom(int max) {
+	srand(time(NULL));
+	return rand() % max;
+}
+
+void execute_thread(int id) {
+	auto nowTime = chrono::system_clock::now();
+	time_t sleepTime = chrono::system_clock::to_time_t(nowTime);
+	cout << "Thread id : " << id << endl;
+	this_thread::sleep_for(chrono::seconds(getRandom(3)));
+	nowTime = chrono::system_clock::now();
+	sleepTime = chrono::system_clock::to_time_t(nowTime);
+	cout << "Thread id : " << id
+		<< endl;
+}
+
 int main() {
+	thread thread1(execute_thread, 1);
+	thread1.join();
+	
+	thread thread2(execute_thread, 2);
+	thread2.join();
+
 	//memoryAllocation();
 	//iterators();
 	//containers();
