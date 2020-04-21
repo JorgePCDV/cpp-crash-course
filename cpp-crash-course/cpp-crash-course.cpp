@@ -10,6 +10,9 @@
 #include <algorithm>
 #include <fstream>
 #include <functional>
+#include <memory>
+#include <memory>
+#include <stdio.h>
 
 #include "Shape.h"
 #include "Circle.h"
@@ -270,9 +273,50 @@ void iterators() {
 	cout << *itr2 << endl;
 }
 
+void memoryAllocation() {
+	int amountToStore;
+	cout << "How many numbers to store: " << endl;
+	cin >> amountToStore;
+
+	int* pNums;
+	pNums = (int*) malloc(amountToStore * sizeof(int));
+	if (pNums != NULL) {
+		int i = 0;
+		while (i < amountToStore) {
+			cout << "Enter a number : ";
+			cin >> pNums[i];
+			i++;
+		}
+	}
+	cout << "You entered these numbers" << endl;
+	for (int i = 0; i < amountToStore; i++) {
+		cout << pNums[i] << endl;
+	}
+	delete pNums;
+}
+
+void smartPointers() {
+	int amountToStore;
+	cout << "How many numbers to store: " << endl;
+	cin >> amountToStore;
+	unique_ptr<int[]> pNums(new int[amountToStore]);
+	if (pNums != NULL) {
+		int i = 0;
+		while (i < amountToStore) {
+			cout << "Enter a number : ";
+			cin >> pNums[i];
+			i++;
+		}
+	}
+	cout << "You entered these numbers" << endl;
+	for (int i = 0; i < amountToStore; i++) {
+		cout << pNums[i] << endl;
+	}
+}
 
 int main() {
-	iterators();
+	//memoryAllocation();
+	//iterators();
 	//containers();
 	
 	/*Person<double, int> somePerson(5.83, 216);
