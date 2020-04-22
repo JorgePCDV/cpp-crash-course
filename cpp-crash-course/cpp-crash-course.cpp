@@ -24,7 +24,11 @@
 #include "Box.h"
 #include "Person.h"
 #include "Person.cpp"
+
 #include <deque>
+#include <list>
+#include <forward_list>
+#include <set>
 
 
 using namespace std;
@@ -333,12 +337,32 @@ void execute_thread(int id) {
 		<< endl;
 }
 
+void deques() {
+	deque<int> deq1;
+	deq1.push_back(5);
+	deq1.push_front(1);
+	deq1.assign({11, 12});
+	cout << deq1[0] << endl;
+	cout << deq1.at(1) << endl;
+	deq1.pop_front();
+	deq1.back();
+}
+
+void sets() {
+	set<int> set1{5, 4, 3, 2, 1, 1};
+	auto val = set1.find(3);
+	cout << "Found " << *val << endl;
+	for (int i : set1) cout << i << endl;
+}
+
 int main() {
-	thread thread1(execute_thread, 1);
+	//sets();
+	//deques();
+	/*thread thread1(execute_thread, 1);
 	thread1.join();
 	
 	thread thread2(execute_thread, 2);
-	thread2.join();
+	thread2.join();*/
 
 	//memoryAllocation();
 	//iterators();

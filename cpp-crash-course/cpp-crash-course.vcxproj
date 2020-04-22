@@ -160,8 +160,12 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="CircleAbstract.h" />
     <ClInclude Include="Person.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="Shape.h" />
     <ClInclude Include="ShapeAbstract.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="cpp-crash-course.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
