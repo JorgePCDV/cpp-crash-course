@@ -29,6 +29,7 @@
 #include <list>
 #include <forward_list>
 #include <set>
+#include <map>
 
 
 using namespace std;
@@ -355,7 +356,24 @@ void sets() {
 	for (int i : set1) cout << i << endl;
 }
 
+void maps() {
+	map<int, string> map1;
+	map1.insert(pair<int, string> (1, "Alice"));
+	map1.insert(pair<int, string> (2, "Bob"));
+	map1.insert(pair<int, string> (3, "Charlie"));
+	map1.insert(pair<int, string> (4, "David"));
+
+	auto match = map1.find(1);
+	cout << match->second << endl;
+
+	map<int, string>::iterator iterator1;
+	for (iterator1 = map1.begin(); iterator1 != map1.end();++iterator1) {
+		cout << "Key: " << iterator1->first << " Value: " << iterator1->second << endl;
+	}
+}
+
 int main() {
+	maps();
 	//sets();
 	//deques();
 	/*thread thread1(execute_thread, 1);
