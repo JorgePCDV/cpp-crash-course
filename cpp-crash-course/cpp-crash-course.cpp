@@ -30,6 +30,7 @@
 #include <forward_list>
 #include <set>
 #include <map>
+#include <stack>
 
 
 using namespace std;
@@ -372,8 +373,21 @@ void maps() {
 	}
 }
 
+void stacks() {
+	stack<string> customers;
+	customers.push("Alice");
+	customers.push("Bob");
+	customers.push("Charles");
+	cout << "Stack size: " << customers.size() << endl;
+	while (!customers.empty()) {
+		cout << "Customer " <<  customers.top() << endl;
+		customers.pop();
+	}
+}
+
 int main() {
-	maps();
+	stacks();
+	//maps();
 	//sets();
 	//deques();
 	/*thread thread1(execute_thread, 1);
