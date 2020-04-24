@@ -385,8 +385,15 @@ void stacks() {
 	}
 }
 
+void enums() {
+	enum day{Mon=1,Tues, Wed, Thur, Fri};
+	enum day tuesday = Tues;
+	cout << "Tuesday is " << tuesday << endl;
+}
+
 int main() {
-	stacks();
+	enums();
+	//stacks();
 	//maps();
 	//sets();
 	//deques();
